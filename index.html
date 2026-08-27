@@ -11,32 +11,33 @@
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --bg:#F5F0E4;
-  --bg-alt:#EBE3D1;
-  --surface:#FFFFFF;
-  --surface-alt:#FAF6EC;
-  --border:rgba(14,6,66,.15);
-  --border-soft:rgba(14,6,66,.09);
-  --text-strong:#0E015D;
-  --text:#332C57;
-  --text-muted:#6A6289;
-  --teal:#2E9C90;
-  --teal-fill:#45D2C4;
-  --teal-fill-2:#37BFB1;
-  --teal-ink:#053430;
-  --teal-tint:#E6F5F2;
-  --clay:#B94E1E;
-  --clay-fill:#DD6428;
-  --clay-fill-2:#C4551E;
+  --bg:#07071c;
+  --bg-alt:#0c0b28;
+  --surface:#14113a;
+  --surface-alt:#191552;
+  --border:rgba(150,140,255,.18);
+  --border-soft:rgba(150,140,255,.10);
+  --text-strong:#F5F3FF;
+  --text:#C7C0EA;
+  --text-muted:#8B82B8;
+  --teal:#5EEAD4;
+  --teal-fill:#2DD4BF;
+  --teal-fill-2:#5EEAD4;
+  --teal-ink:#052E29;
+  --teal-tint:rgba(94,234,212,.14);
+  --teal-solid:#0F9C8C;
+  --clay:#FF9866;
+  --clay-fill:#FF7A45;
+  --clay-fill-2:#E2672B;
   --clay-ink:#FFF9F4;
-  --clay-tint:#FCEEE4;
-  --navy-fill:#0E015D;
-  --navy-fill-2:#170B49;
-  --on-navy:#F1EEFA;
-  --on-navy-muted:#B6AEDC;
-  --shadow:0 24px 60px -24px rgba(14,1,93,.35);
-  --shadow-sm:0 10px 24px -14px rgba(14,1,93,.28);
-  --grid-line:rgba(14,1,93,.08);
+  --clay-tint:rgba(255,152,102,.14);
+  --navy-fill:#241E63;
+  --navy-fill-2:#2E2678;
+  --on-navy:#F5F3FF;
+  --on-navy-muted:#B7AEDE;
+  --shadow:0 30px 70px -30px rgba(0,0,0,.75);
+  --shadow-sm:0 14px 32px -18px rgba(0,0,0,.55);
+  --grid-line:rgba(150,140,255,.16);
   --radius-lg:28px;
   --radius-md:16px;
   --radius-sm:10px;
@@ -58,7 +59,7 @@ a{color:inherit}
 .eyebrow{
   display:inline-flex;align-items:center;gap:8px;
   font-family:var(--font-mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;
-  color:var(--teal-ink);background:var(--teal-tint);border:1px solid rgba(46,156,144,.3);
+  color:var(--teal);background:var(--teal-tint);border:1px solid rgba(94,234,212,.35);
   padding:6px 14px;border-radius:999px;font-weight:500;
 }
 .eyebrow.clay{color:var(--clay-ink);background:var(--clay);border-color:var(--clay-fill)}
@@ -79,12 +80,12 @@ p{color:var(--text)}
 /* ===== nav ===== */
 header.nav{
   position:sticky;top:0;z-index:100;
-  background:rgba(245,240,228,.86);backdrop-filter:blur(10px);
+  background:rgba(7,7,28,.78);backdrop-filter:blur(10px);
   border-bottom:1px solid var(--border-soft);
 }
 .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:16px 24px;max-width:1180px;margin:0 auto}
 .brand{display:flex;align-items:center;gap:10px;font-family:var(--font-display);font-weight:800;font-size:1.3rem;color:var(--text-strong);letter-spacing:.02em;white-space:nowrap}
-.brand-logo{height:44px;width:auto;display:block}
+.brand-logo{height:clamp(36px,9vw,44px);width:auto;max-width:170px;display:block}
 .brand .mark{width:34px;height:34px;border-radius:9px;background:linear-gradient(135deg,var(--navy-fill),var(--teal-ink));display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .brand .mark svg{width:18px;height:18px}
 .navlinks{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none}
@@ -99,11 +100,11 @@ header.nav{
 .hero{padding:76px 0 60px;position:relative;overflow:hidden}
 .hero::before{
   content:"";position:absolute;inset:-20% -10% auto -10%;height:520px;
-  background:radial-gradient(60% 60% at 30% 20%, rgba(69,210,196,.22), transparent 70%),
-             radial-gradient(50% 50% at 85% 10%, rgba(221,100,40,.16), transparent 70%);
+  background:radial-gradient(60% 60% at 30% 20%, rgba(94,234,212,.28), transparent 70%),
+             radial-gradient(50% 50% at 85% 10%, rgba(255,152,102,.20), transparent 70%);
   pointer-events:none;
 }
-.hero-inner{position:relative;max-width:880px}
+.hero-inner{position:relative;z-index:2;max-width:880px}
 .hero h1{font-size:clamp(2.8rem,7vw,5.4rem);text-transform:uppercase;margin:22px 0 10px;letter-spacing:.01em}
 .hero .sub{font-family:var(--font-mono);font-size:.95rem;color:var(--text-muted);letter-spacing:.02em;margin-bottom:22px}
 .hero .pitch{font-size:1.2rem;max-width:680px;color:var(--text);margin-bottom:30px}
@@ -140,7 +141,7 @@ header.nav{
 .card p{font-size:.92rem;color:var(--text-muted)}
 .icon-badge{width:40px;height:40px;border-radius:11px;display:flex;align-items:center;justify-content:center;margin-bottom:14px}
 .icon-badge svg{width:20px;height:20px;stroke:#fff}
-.icon-badge.teal{background:var(--teal)}
+.icon-badge.teal{background:var(--teal-solid)}
 .icon-badge.clay{background:var(--clay)}
 .icon-badge.navy{background:var(--navy-fill)}
 
@@ -161,8 +162,8 @@ tbody tr:last-child td{border-bottom:none}
 td.crit{font-weight:600;color:var(--text-strong);white-space:nowrap}
 .col-teal{color:var(--teal-ink)}
 .col-clay{color:var(--clay-ink)}
-th.col-teal-h{background:var(--teal-tint);color:var(--teal-ink)}
-th.col-clay-h{background:var(--clay-tint);color:var(--clay-ink)}
+th.col-teal-h{background:var(--teal-tint);color:var(--teal)}
+th.col-clay-h{background:var(--clay-tint);color:var(--clay)}
 .callout{
   margin-top:22px;padding:20px 22px;border-radius:var(--radius-md);
   background:var(--navy-fill);color:var(--on-navy);font-size:.95rem;
@@ -177,7 +178,7 @@ th.col-clay-h{background:var(--clay-tint);color:var(--clay-ink)}
 .pipe-dot{
   flex-shrink:0;width:34px;height:34px;border-radius:50%;background:var(--surface-alt);
   border:2px solid var(--teal-fill);display:flex;align-items:center;justify-content:center;
-  font-family:var(--font-mono);font-weight:600;font-size:.85rem;color:var(--teal-ink);
+  font-family:var(--font-mono);font-weight:600;font-size:.85rem;color:var(--teal);
 }
 .pipe-body h4{font-size:.98rem;font-family:var(--font-body);font-weight:700;color:var(--text-strong);margin-bottom:4px}
 .pipe-body p{font-size:.9rem;color:var(--text-muted)}
@@ -189,8 +190,8 @@ th.col-clay-h{background:var(--clay-tint);color:var(--clay-ink)}
 .compare-box.before{background:var(--clay-tint)}
 .compare-box.after{background:var(--teal-tint)}
 .compare-box h4{font-family:var(--font-mono);font-size:.75rem;text-transform:uppercase;letter-spacing:.1em;margin-bottom:10px}
-.compare-box.before h4{color:var(--clay-ink)}
-.compare-box.after h4{color:var(--teal-ink)}
+.compare-box.before h4{color:var(--clay)}
+.compare-box.after h4{color:var(--teal)}
 .compare-box p{font-size:.92rem}
 
 /* ===== pricing ===== */
@@ -203,7 +204,7 @@ th.col-clay-h{background:var(--clay-tint);color:var(--clay-ink)}
 }
 .price-card.featured{border:2px solid var(--teal-fill);box-shadow:var(--shadow)}
 .price-card.featured::before{
-  content:"Recommandé";position:absolute;top:-12px;right:20px;background:var(--teal);color:#fff;
+  content:"Recommandé";position:absolute;top:-12px;right:20px;background:var(--teal-solid);color:#fff;
   font-family:var(--font-mono);font-size:.68rem;letter-spacing:.06em;padding:4px 10px;border-radius:999px;text-transform:uppercase;
 }
 .price-card .label{font-family:var(--font-mono);font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--text-muted)}
@@ -241,13 +242,13 @@ th.col-clay-h{background:var(--clay-tint);color:var(--clay-ink)}
 .funnel-row .body h4{font-family:var(--font-body);font-size:.95rem;font-weight:700;color:var(--text-strong)}
 .funnel-row .body p{font-size:.86rem;color:var(--text-muted)}
 .rules-box{margin-top:20px;display:grid;gap:10px}
-.rules-box .rule{display:flex;gap:10px;font-size:.9rem;background:var(--clay-tint);padding:12px 16px;border-radius:var(--radius-sm);color:var(--clay-ink)}
+.rules-box .rule{display:flex;gap:10px;font-size:.9rem;background:var(--clay-tint);padding:12px 16px;border-radius:var(--radius-sm);color:var(--clay)}
 
 /* ===== roadmap timeline ===== */
 .timeline{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:10px}
 @media(max-width:820px){.timeline{grid-template-columns:1fr}}
 .tl-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-md);padding:22px;box-shadow:var(--shadow-sm)}
-.tl-card .ph{font-family:var(--font-mono);font-size:.72rem;color:var(--teal-ink);text-transform:uppercase;letter-spacing:.08em}
+.tl-card .ph{font-family:var(--font-mono);font-size:.72rem;color:var(--teal);text-transform:uppercase;letter-spacing:.08em}
 .tl-card h4{margin-top:6px;font-size:1.05rem}
 .tl-card p{font-size:.88rem;color:var(--text-muted);margin-top:8px}
 .stack-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
@@ -282,6 +283,41 @@ footer .fm{font-family:var(--font-mono);font-size:.76rem;letter-spacing:.04em}
   .section{padding:60px 0}
   .grid-3{grid-template-columns:1fr}
 }
+
+/* ===== blueprint hero background + interactive building ===== */
+.blueprint-layer{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0}
+.blueprint-layer .grid-tex{
+  position:absolute;inset:-15% -15%;opacity:.6;
+  background-image:linear-gradient(var(--grid-line) 1px, transparent 1px),
+                    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+  background-size:36px 36px;
+}
+.blueprint-layer .spotlight{
+  position:absolute;inset:0;
+  background:radial-gradient(280px circle at var(--mx,50%) var(--my,32%), rgba(94,234,212,.22), transparent 70%);
+  opacity:0;transition:opacity .3s ease;
+}
+.blueprint-layer.active .spotlight{opacity:1}
+.building{
+  position:absolute;right:-30px;bottom:-10px;width:min(620px,58vw);height:auto;
+  color:var(--teal);opacity:.5;transition:transform .4s cubic-bezier(.2,.8,.2,1);will-change:transform;
+}
+.building .crane{color:var(--clay);opacity:.85}
+@media(max-width:720px){.building{width:78vw;opacity:.35}}
+
+/* ===== hover lift ===== */
+.card,.price-card,.engine-card,.tl-card,.funnel-row{
+  transition:transform .25s cubic-bezier(.2,.8,.2,1),box-shadow .25s ease,border-color .25s ease;
+}
+.card:hover,.price-card:hover,.engine-card:hover,.tl-card:hover,.funnel-row:hover{
+  transform:translateY(-5px);box-shadow:var(--shadow);border-color:rgba(94,234,212,.4);
+}
+
+/* ===== mobile nav calibration ===== */
+@media(max-width:640px){
+  .nav-inner{flex-wrap:wrap;row-gap:10px;padding:12px 16px}
+  .navlinks{width:100%;justify-content:flex-start}
+}
 </style>
 </head>
 <body>
@@ -306,6 +342,51 @@ footer .fm{font-family:var(--font-mono);font-size:.76rem;letter-spacing:.04em}
 </header>
 
 <section class="hero">
+  <div class="blueprint-layer" aria-hidden="true">
+    <div class="grid-tex"></div>
+    <svg class="building" viewBox="0 0 640 420" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <line x1="20" y1="380" x2="600" y2="380" stroke="currentColor" stroke-width="2" opacity=".8"/>
+        <rect x="40" y="180" width="90" height="200" stroke="currentColor" stroke-width="2"/>
+        <line x1="40" y1="230" x2="130" y2="230" stroke="currentColor" stroke-width="1"/>
+        <line x1="40" y1="280" x2="130" y2="280" stroke="currentColor" stroke-width="1"/>
+        <line x1="40" y1="330" x2="130" y2="330" stroke="currentColor" stroke-width="1"/>
+        <line x1="70" y1="180" x2="70" y2="380" stroke="currentColor" stroke-width="1"/>
+        <line x1="100" y1="180" x2="100" y2="380" stroke="currentColor" stroke-width="1"/>
+        <rect x="150" y="100" width="110" height="280" stroke="currentColor" stroke-width="2"/>
+        <line x1="150" y1="156" x2="260" y2="156" stroke="currentColor" stroke-width="1"/>
+        <line x1="150" y1="212" x2="260" y2="212" stroke="currentColor" stroke-width="1"/>
+        <line x1="150" y1="268" x2="260" y2="268" stroke="currentColor" stroke-width="1"/>
+        <line x1="150" y1="324" x2="260" y2="324" stroke="currentColor" stroke-width="1"/>
+        <line x1="187" y1="100" x2="187" y2="380" stroke="currentColor" stroke-width="1"/>
+        <line x1="224" y1="100" x2="224" y2="380" stroke="currentColor" stroke-width="1"/>
+        <rect x="280" y="140" width="100" height="240" stroke="currentColor" stroke-width="2"/>
+        <line x1="280" y1="188" x2="380" y2="188" stroke="currentColor" stroke-width="1"/>
+        <line x1="280" y1="236" x2="380" y2="236" stroke="currentColor" stroke-width="1"/>
+        <line x1="280" y1="284" x2="380" y2="284" stroke="currentColor" stroke-width="1"/>
+        <line x1="280" y1="332" x2="380" y2="332" stroke="currentColor" stroke-width="1"/>
+        <line x1="313" y1="140" x2="313" y2="380" stroke="currentColor" stroke-width="1"/>
+        <line x1="346" y1="140" x2="346" y2="380" stroke="currentColor" stroke-width="1"/>
+        <g class="crane">
+          <line x1="330" y1="140" x2="330" y2="60" stroke="currentColor" stroke-width="2"/>
+          <line x1="330" y1="70" x2="470" y2="70" stroke="currentColor" stroke-width="2"/>
+          <line x1="330" y1="90" x2="430" y2="70" stroke="currentColor" stroke-width="1.5"/>
+          <line x1="460" y1="70" x2="460" y2="100" stroke="currentColor" stroke-width="1.5"/>
+        </g>
+        <rect x="400" y="220" width="80" height="160" stroke="currentColor" stroke-width="2"/>
+        <line x1="400" y1="260" x2="480" y2="260" stroke="currentColor" stroke-width="1"/>
+        <line x1="400" y1="300" x2="480" y2="300" stroke="currentColor" stroke-width="1"/>
+        <line x1="400" y1="340" x2="480" y2="340" stroke="currentColor" stroke-width="1"/>
+        <line x1="427" y1="220" x2="427" y2="380" stroke="currentColor" stroke-width="1"/>
+        <line x1="454" y1="220" x2="454" y2="380" stroke="currentColor" stroke-width="1"/>
+        <rect x="500" y="160" width="70" height="220" stroke="currentColor" stroke-width="2"/>
+        <line x1="500" y1="215" x2="570" y2="215" stroke="currentColor" stroke-width="1"/>
+        <line x1="500" y1="270" x2="570" y2="270" stroke="currentColor" stroke-width="1"/>
+        <line x1="500" y1="325" x2="570" y2="325" stroke="currentColor" stroke-width="1"/>
+        <line x1="523" y1="160" x2="523" y2="380" stroke="currentColor" stroke-width="1"/>
+        <line x1="546" y1="160" x2="546" y2="380" stroke="currentColor" stroke-width="1"/>
+      </svg>
+    <div class="spotlight"></div>
+  </div>
   <div class="container hero-inner">
     <span class="eyebrow">Cahier des charges · Version 8.0 · Août 2026</span>
     <h1>Apinvest</h1>
@@ -561,26 +642,26 @@ footer .fm{font-family:var(--font-mono);font-size:.76rem;letter-spacing:.04em}
           <line x1="40" y1="155" x2="460" y2="155" stroke="var(--grid-line)" stroke-width="1" stroke-dasharray="3 5"/>
           <line x1="40" y1="110" x2="460" y2="110" stroke="var(--grid-line)" stroke-width="1" stroke-dasharray="3 5"/>
           <line x1="40" y1="65" x2="460" y2="65" stroke="var(--grid-line)" stroke-width="1" stroke-dasharray="3 5"/>
-          <text x="34" y="204" text-anchor="end" font-family="IBM Plex Mono" font-size="10" fill="#6A6289">0</text>
-          <text x="34" y="159" text-anchor="end" font-family="IBM Plex Mono" font-size="10" fill="#6A6289">15</text>
-          <text x="34" y="114" text-anchor="end" font-family="IBM Plex Mono" font-size="10" fill="#6A6289">30</text>
-          <text x="34" y="69" text-anchor="end" font-family="IBM Plex Mono" font-size="10" fill="#6A6289">45</text>
+          <text x="34" y="204" text-anchor="end" font-family="IBM Plex Mono" font-size="10" fill="#8B82B8">0</text>
+          <text x="34" y="159" text-anchor="end" font-family="IBM Plex Mono" font-size="10" fill="#8B82B8">15</text>
+          <text x="34" y="114" text-anchor="end" font-family="IBM Plex Mono" font-size="10" fill="#8B82B8">30</text>
+          <text x="34" y="69" text-anchor="end" font-family="IBM Plex Mono" font-size="10" fill="#8B82B8">45</text>
 
-          <rect x="80" y="187" width="60" height="13" rx="3" fill="#2E9C90"/>
-          <text x="110" y="180" text-anchor="middle" font-family="IBM Plex Mono" font-size="11" fill="#0E015D" font-weight="600">4,6k</text>
-          <text x="110" y="216" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="#6A6289">M3</text>
+          <rect x="80" y="187" width="60" height="13" rx="3" fill="#2DD4BF"/>
+          <text x="110" y="180" text-anchor="middle" font-family="IBM Plex Mono" font-size="11" fill="#F5F3FF" font-weight="600">4,6k</text>
+          <text x="110" y="216" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="#8B82B8">M3</text>
 
-          <rect x="190" y="152" width="60" height="48" rx="3" fill="#37BFB1"/>
-          <text x="220" y="145" text-anchor="middle" font-family="IBM Plex Mono" font-size="11" fill="#0E015D" font-weight="600">16k</text>
-          <text x="220" y="216" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="#6A6289">M6</text>
+          <rect x="190" y="152" width="60" height="48" rx="3" fill="#5EEAD4"/>
+          <text x="220" y="145" text-anchor="middle" font-family="IBM Plex Mono" font-size="11" fill="#F5F3FF" font-weight="600">16k</text>
+          <text x="220" y="216" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="#8B82B8">M6</text>
 
-          <rect x="300" y="83" width="60" height="117" rx="3" fill="#DD6428"/>
-          <text x="330" y="76" text-anchor="middle" font-family="IBM Plex Mono" font-size="11" fill="#0E015D" font-weight="600">28k</text>
-          <text x="330" y="216" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="#6A6289">M9</text>
+          <rect x="300" y="83" width="60" height="117" rx="3" fill="#FF9866"/>
+          <text x="330" y="76" text-anchor="middle" font-family="IBM Plex Mono" font-size="11" fill="#F5F3FF" font-weight="600">28k</text>
+          <text x="330" y="216" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="#8B82B8">M9</text>
 
-          <rect x="410" y="27" width="60" height="173" rx="3" fill="#B94E1E"/>
-          <text x="440" y="20" text-anchor="middle" font-family="IBM Plex Mono" font-size="11" fill="#0E015D" font-weight="600">44k</text>
-          <text x="440" y="216" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="#6A6289">M12</text>
+          <rect x="410" y="27" width="60" height="173" rx="3" fill="#E2672B"/>
+          <text x="440" y="20" text-anchor="middle" font-family="IBM Plex Mono" font-size="11" fill="#F5F3FF" font-weight="600">44k</text>
+          <text x="440" y="216" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="#8B82B8">M12</text>
         </svg>
       </div>
 
@@ -789,6 +870,33 @@ var io = new IntersectionObserver(function(entries){
   });
 }, {threshold:.12});
 els.forEach(function(el){ io.observe(el); });
+
+// blueprint hero: cursor spotlight + building parallax
+(function(){
+  var hero = document.querySelector('.hero');
+  var layer = document.querySelector('.blueprint-layer');
+  var building = document.querySelector('.building');
+  if(!hero || !layer) return;
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(reduceMotion) return;
+  hero.addEventListener('mousemove', function(e){
+    var r = hero.getBoundingClientRect();
+    var px = (e.clientX - r.left) / r.width;
+    var py = (e.clientY - r.top) / r.height;
+    layer.style.setProperty('--mx', (px*100) + '%');
+    layer.style.setProperty('--my', (py*100) + '%');
+    layer.classList.add('active');
+    if(building){
+      var dx = (px - 0.5) * -26;
+      var dy = (py - 0.5) * -16;
+      building.style.transform = 'translate(' + dx.toFixed(1) + 'px,' + dy.toFixed(1) + 'px)';
+    }
+  });
+  hero.addEventListener('mouseleave', function(){
+    layer.classList.remove('active');
+    if(building){ building.style.transform = 'translate(0,0)'; }
+  });
+})();
 </script>
 </body>
 </html>
