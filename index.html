@@ -330,9 +330,29 @@ footer .fm{font-family:var(--font-mono);font-size:.76rem;letter-spacing:.04em}
 @media (max-width:720px){
   .scrollvid-stage{height:260vh}
 }
+
+/* ===== conversion & accessibility ===== */
+.skip-link{position:absolute;left:16px;top:-64px;z-index:300;background:var(--teal-fill);color:var(--teal-ink);padding:10px 14px;border-radius:0 0 10px 10px;font-weight:700;text-decoration:none}
+.skip-link:focus{top:0}
+a:focus-visible{outline:3px solid var(--teal-fill);outline-offset:3px}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin:0 0 20px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:11px 18px;border-radius:999px;font-weight:700;text-decoration:none;transition:transform .18s ease,box-shadow .18s ease}
+.btn:hover{transform:translateY(-2px);box-shadow:var(--shadow-sm)}
+.btn-primary{background:var(--teal-fill);color:var(--teal-ink)}
+.btn-secondary{border:1px solid var(--border);background:var(--surface);color:var(--text-strong)}
+@media(max-width:640px){
+  body{overflow-x:hidden}
+  .hero{padding-top:52px}
+  .hero-actions{display:grid;grid-template-columns:1fr}
+  .btn{width:100%}
+  .chart-card canvas{max-width:100%!important;height:auto!important}
+  .building{right:-10px}
+}
+
 </style>
 </head>
 <body>
+<a class="skip-link" href="#contenu">Aller au contenu</a>
 
 <div id="progress"></div>
 
@@ -353,6 +373,7 @@ footer .fm{font-family:var(--font-mono);font-size:.76rem;letter-spacing:.04em}
   </div>
 </header>
 
+<main id="contenu">
 <section class="hero">
   <div class="blueprint-layer" aria-hidden="true">
     <div class="grid-tex"></div>
@@ -404,6 +425,10 @@ footer .fm{font-family:var(--font-mono);font-size:.76rem;letter-spacing:.04em}
     <h1>Apinvest</h1>
     <div class="sub">Marketplace BTP&nbsp;&nbsp;·&nbsp;&nbsp;Logiciel APINVESTWORK&nbsp;&nbsp;·&nbsp;&nbsp;Document collaborateur</div>
     <p class="pitch">APINVEST apporte des affaires qualifiées aux artisans et architectes confirmés, et leur propose un logiciel de gestion qui <strong>transforme le planning en factures automatiquement</strong> — pour qu'ils passent plus de temps sur le chantier et moins sur l'administratif.</p>
+    <div class="hero-actions" aria-label="Découvrir les offres">
+      <a class="btn btn-primary" href="#produits">Découvrir les deux offres</a>
+      <a class="btn btn-secondary" href="#abonnements">Voir les abonnements</a>
+    </div>
     <div class="hero-meta">
       <span class="chip">Commission 9–10 % au succès</span>
       <span class="chip">APINVESTWORK dès 19&nbsp;€/mois</span>
@@ -877,6 +902,7 @@ footer .fm{font-family:var(--font-mono);font-size:.76rem;letter-spacing:.04em}
     <div class="fm">Version 8.0 — Août 2026 — Cahier des charges collaborateur</div>
   </div>
 </footer>
+</main>
 
 <script>
 // scroll progress
